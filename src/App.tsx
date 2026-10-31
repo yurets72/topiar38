@@ -85,13 +85,13 @@ const projects = [
 const testimonials = [
   {
     quote:
-      "Команда не просто сделала красивую концепцию — они помогли сформировать идею, которая реально работает для города.",
+      "Команда не просто сделала красивую концепцию — они помогли сформировать идею, которая реально работает и вдохновляет на действие.",
     author: "Алексей М.",
     role: "Предприниматель, городская среда",
   },
   {
     quote:
-      "Понравился баланс между эстетикой и практичностью. В итоге появился понятный, сильный визуальный стандарт.",
+      "Понравился баланс между эстетикой и практичностью. В итоге появился понятный и сильный визуальный образ проекта.",
     author: "Марина С.",
     role: "Дизайнер городской среды",
   },
@@ -128,15 +128,18 @@ export default function App() {
             ))}
           </div>
 
-          <button className="rounded-full bg-brand-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-brand-700">
+          <button
+            type="button"
+            className="rounded-full bg-brand-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-brand-700"
+          >
             Связаться
           </button>
         </nav>
       </header>
 
       <main>
-        <section className="relative">
-          <div className="absolute inset-0 -z-10 bg-grid opacity-60" />
+        <section id="о-проекте" className="relative">
+          <div className="absolute inset-0 -z-10 opacity-60" />
           <div className="mx-auto grid max-w-7xl items-center gap-12 px-5 pb-20 pt-16 md:grid-cols-[1.1fr_0.9fr] md:px-8 md:pt-20">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -148,7 +151,7 @@ export default function App() {
                 Умное озеленение и дизайн среды
               </div>
 
-              <h1 className="max-w-xl text-balance text-4xl font-black tracking-[-0.06em] text-slate-900 md:text-6xl">
+              <h1 className="max-w-xl text-4xl font-black tracking-[-0.06em] text-slate-900 md:text-6xl">
                 Создаём красивое пространство для жизни в городе
               </h1>
 
@@ -158,11 +161,17 @@ export default function App() {
               </p>
 
               <div className="mt-8 flex flex-wrap items-center gap-4">
-                <button className="inline-flex items-center gap-2 rounded-full bg-brand-600 px-6 py-3.5 font-medium text-white shadow-soft hover:bg-brand-700">
+                <button
+                  type="button"
+                  className="inline-flex items-center gap-2 rounded-full bg-brand-600 px-6 py-3.5 font-medium text-white shadow-soft hover:bg-brand-700"
+                >
                   Узнать подробнее
                   <ArrowRight className="h-4 w-4" />
                 </button>
-                <button className="rounded-full border border-slate-200 bg-white px-6 py-3.5 font-medium text-slate-700 hover:border-slate-300 hover:bg-slate-50">
+                <button
+                  type="button"
+                  className="rounded-full border border-slate-200 bg-white px-6 py-3.5 font-medium text-slate-700 hover:border-slate-300 hover:bg-slate-50"
+                >
                   Смотреть проекты
                 </button>
               </div>
@@ -244,3 +253,167 @@ export default function App() {
                     <div className="rounded-2xl border border-slate-200 bg-white/80 p-4">
                       <div className="flex items-center gap-2 text-brand-700">
                         <Users className="h-4 w-4" />
+                        <span className="text-sm font-medium">Сообщество</span>
+                      </div>
+                      <p className="mt-2 text-xl font-bold text-slate-900">+4.2k</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </section>
+
+        <section id="преимущества" className="mx-auto max-w-7xl px-5 py-20 md:px-8">
+          <div className="mb-12 text-center">
+            <p className="text-sm font-semibold uppercase tracking-[0.24em] text-brand-700">
+              Преимущества
+            </p>
+            <h2 className="mt-4 text-3xl font-black tracking-[-0.05em] text-slate-900 md:text-5xl">
+              Пространство, которое работает на людей
+            </h2>
+          </div>
+
+          <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+            {features.map(({ icon: Icon, title, text }) => (
+              <div key={title} className="rounded-[1.75rem] border border-slate-200 bg-white p-6 shadow-soft">
+                <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-2xl bg-brand-100 text-brand-700">
+                  <Icon className="h-5 w-5" />
+                </div>
+                <h3 className="text-xl font-bold text-slate-900">{title}</h3>
+                <p className="mt-3 text-slate-600">{text}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section id="как-работаем" className="bg-slate-900 py-20 text-white">
+          <div className="mx-auto max-w-7xl px-5 md:px-8">
+            <div className="mb-12 text-center">
+              <p className="text-sm font-semibold uppercase tracking-[0.24em] text-emerald-300">
+                Как работаем
+              </p>
+              <h2 className="mt-4 text-3xl font-black tracking-[-0.05em] md:text-5xl">
+                От идеи до устойчивой среды
+              </h2>
+            </div>
+
+            <div className="grid gap-6 md:grid-cols-3">
+              {process.map((item) => (
+                <div key={item.number} className="rounded-[1.75rem] border border-slate-700 bg-slate-800/80 p-6">
+                  <div className="mb-8 text-4xl font-black text-emerald-300">{item.number}</div>
+                  <h3 className="text-2xl font-bold">{item.title}</h3>
+                  <p className="mt-4 text-slate-300">{item.text}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section id="портфолио" className="mx-auto max-w-7xl px-5 py-20 md:px-8">
+          <div className="mb-12 flex items-end justify-between gap-4">
+            <div>
+              <p className="text-sm font-semibold uppercase tracking-[0.24em] text-brand-700">
+                Портфолио
+              </p>
+              <h2 className="mt-4 text-3xl font-black tracking-[-0.05em] text-slate-900 md:text-5xl">
+                Кейсы и идеи для города
+              </h2>
+            </div>
+            <a href="#контакты" className="hidden items-center gap-2 text-sm font-semibold text-slate-700 md:inline-flex">
+              Все объекты <ChevronRight className="h-4 w-4" />
+            </a>
+          </div>
+
+          <div className="grid gap-6 lg:grid-cols-3">
+            {projects.map((project) => (
+              <div
+                key={project.title}
+                className={cn(
+                  "rounded-[1.75rem] border border-slate-200 bg-gradient-to-br p-6 shadow-soft",
+                  project.tone
+                )}
+              >
+                <div className={cn("mb-6 h-52 rounded-[1.4rem] border border-white/50", project.accent)} />
+                <p className="text-sm uppercase tracking-[0.2em] text-slate-600">{project.subtitle}</p>
+                <h3 className="mt-3 text-2xl font-bold text-slate-900">{project.title}</h3>
+                <div className="mt-6 flex items-center gap-2 text-sm font-medium text-slate-700">
+                  <span>Подробнее</span>
+                  <ArrowRight className="h-4 w-4" />
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section className="bg-brand-50 py-20">
+          <div className="mx-auto max-w-7xl px-5 md:px-8">
+            <div className="grid gap-6 lg:grid-cols-2">
+              {testimonials.map((item) => (
+                <div key={item.author} className="rounded-[1.75rem] border border-brand-200 bg-white p-6 shadow-soft">
+                  <div className="mb-4 flex text-brand-500">
+                    {[...Array(5)].map((_, idx) => (
+                      <Star key={idx} className="h-4 w-4 fill-current" />
+                    ))}
+                  </div>
+                  <p className="text-lg leading-8 text-slate-700">“{item.quote}”</p>
+                  <div className="mt-6 border-t border-slate-200 pt-4">
+                    <p className="font-bold text-slate-900">{item.author}</p>
+                    <p className="text-sm text-slate-500">{item.role}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section id="контакты" className="mx-auto max-w-7xl px-5 py-20 md:px-8">
+          <div className="rounded-[2rem] bg-slate-900 p-8 text-white md:p-12">
+            <div className="grid gap-8 md:grid-cols-[1.1fr_0.9fr] md:items-center">
+              <div>
+                <p className="text-sm font-semibold uppercase tracking-[0.24em] text-emerald-300">
+                  Контакты
+                </p>
+                <h2 className="mt-4 text-3xl font-black tracking-[-0.05em] md:text-5xl">
+                  Начнём создавать пространство, которое хочется беречь
+                </h2>
+              </div>
+
+              <div className="rounded-[1.5rem] border border-slate-700 bg-slate-800 p-6">
+                <ul className="space-y-4 text-slate-200">
+                  <li className="flex items-center gap-3">
+                    <Check className="h-5 w-5 text-emerald-300" />
+                    Разработка концепции озеленения
+                  </li>
+                  <li className="flex items-center gap-3">
+                    <Check className="h-5 w-5 text-emerald-300" />
+                    Городские и общественные пространства
+                  </li>
+                  <li className="flex items-center gap-3">
+                    <Check className="h-5 w-5 text-emerald-300" />
+                    Поддержка на этапе запуска
+                  </li>
+                </ul>
+
+                <button
+                  type="button"
+                  className="mt-6 inline-flex items-center gap-2 rounded-full bg-brand-500 px-5 py-3 font-medium text-white hover:bg-brand-400"
+                >
+                  Написать в проект
+                  <ArrowRight className="h-4 w-4" />
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer className="border-t border-slate-200 bg-white">
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-6 text-sm text-slate-500 md:px-8">
+          <p>© 2026 Topiary. Иркутск</p>
+          <p>Городские решения для устойчивой среды</p>
+        </div>
+      </footer>
+    </div>
+  );
+}
